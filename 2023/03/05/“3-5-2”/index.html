@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>“3.5.2” | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="最短路径算法：有权图 1.Dijkstra狄克斯特拉算法基本思想：  狄克斯特拉算法解决图中一点到其余各点到最短路径的问题。其基本思想位：图G&#x3D;(V,E)是一个有权有向图，把顶点V分成两组，第一组为已求出最短路径的点的集合(用S表示，初始时S中只有一个源点，以后每求得一条最短路径v,…k，就将k加入到集合S中，直到全部到点都加入S集合中，算法结束)，第二组为其余未确定最短路径的点的集合(用U表示)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“3.5.2”">
+<meta property="og:url" content="http://example.com/2023/03/05/%E2%80%9C3-5-2%E2%80%9D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最短路径算法：有权图 1.Dijkstra狄克斯特拉算法基本思想：  狄克斯特拉算法解决图中一点到其余各点到最短路径的问题。其基本思想位：图G&#x3D;(V,E)是一个有权有向图，把顶点V分成两组，第一组为已求出最短路径的点的集合(用S表示，初始时S中只有一个源点，以后每求得一条最短路径v,…k，就将k加入到集合S中，直到全部到点都加入S集合中，算法结束)，第二组为其余未确定最短路径的点的集合(用U表示)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/03/05/%E2%80%9C3-5-2%E2%80%9D/1.png">
+<meta property="article:published_time" content="2023-03-05T02:36:42.000Z">
+<meta property="article:modified_time" content="2023-04-03T13:33:22.458Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/03/05/%E2%80%9C3-5-2%E2%80%9D/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-“3-5-2”" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/05/%E2%80%9C3-5-2%E2%80%9D/" class="article-date">
+  <time class="dt-published" datetime="2023-03-05T02:36:42.000Z" itemprop="datePublished">2023-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      “3.5.2”
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>最短路径算法：有权图</p>
+<h2 id="1-Dijkstra狄克斯特拉算法"><a href="#1-Dijkstra狄克斯特拉算法" class="headerlink" title="1.Dijkstra狄克斯特拉算法"></a><strong>1.Dijkstra狄克斯特拉算法</strong></h2><p>基本思想：</p>
+<p> 狄克斯特拉算法解决图中一点到其余各点到最短路径的问题。其基本思想位：图G=(V,E)是一个有权有向图，把顶点V分成两组，第一组为已求出最短路径的点的集合(用S表示，初始时S中只有一个源点，以后每求得一条最短路径v,…k，就将k加入到集合S中，直到全部到点都加入S集合中，算法结束)，第二组为其余未确定最短路径的点的集合(用U表示)，按最短路径长度的递增次序依次把第二组的顶点加入到S中。</p>
+<p><strong>算法描述</strong></p>
+<p>操作步骤：</p>
+<ol>
+<li>初始时，S只包含起点s；U包含除s外的其他顶点，且U中顶点的距离为”起点s到该顶点的距离”[例如，U中顶点v的距离为(s,v)的长度，然后s和v不相邻，则v的距离为∞]。</li>
+<li>从U中选出”距离最短的顶点k”，并将顶点k加入到S中；同时，从U中移除顶点k。</li>
+<li>更新U中各个顶点到起点s的距离。之所以更新U中顶点的距离，是由于上一步中确定了k是求出最短路径的顶点，从而可以利用k来更新其它顶点的距离；例如，(s,v)的距离可能大于(s,k)+(k,v)的距离。</li>
+<li>重复步骤(2)和(3)，直到遍历完所有顶点。</li>
+</ol>
+<h2 id="FLoyd算法"><a href="#FLoyd算法" class="headerlink" title="FLoyd算法"></a><strong>FLoyd算法</strong></h2><p> 对于第二类问题，求每对点之间的最短路径，可以通过把每个点作为源点用Dijkstra算法求最短路径。也可以用弗洛伊德(Floyd)算法。</p>
+<p>基本思想：</p>
+<p> 有图G=(V,E)采用邻接矩阵cost存储，另外设置一个二维数组A用来存放当前顶点之间的最短路径长度，分量A[i][j]表示当前顶点i到顶点j到最短路径长度。Floyd算法到基本思想是递推产生一个矩阵序列A0，A1，……，Ak，……，An,其中Ak[i][j]表示从顶点i到顶点j的路径上经过的顶点编号不大于k的最短路径长度。</p>
+<p><strong>算法描述</strong></p>
+<p>Floyd算法的思想可用如下的表达式来描述：<br>A − 1 [ i ] [ j ] = c o s t [ i ] [ j ] A_{-1}[i][j]=cost[i][j]A−1​[i][j]=cost[i][j]</p>
+<p>A k + 1 [ i ] [ j ] = m i n ( A k [ i ] [ j ] , A k [ i ] [ k + 1 ] + A k [ k + 1 ] [ j ] ) ( − 1 ≤ k ≤ n − 2 ) A_{k+1}[i][j]=min(A_{k}[i][j],A_{k}[i][k+1]+A_{k}[k+1][j])(-1\leq k\leq n-2)Ak+1[i][j]=min(Ak[i][j],Ak[i][k+1]+Ak[k+1][j])(−1≤k≤n−2)</p>
+<p><img src="/2023/03/05/%E2%80%9C3-5-2%E2%80%9D/1.png" alt="1"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/shui2104/article/details/107053966">(12条消息) 最短路径算法_shui2104的博客-CSDN博客</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/05/%E2%80%9C3-5-2%E2%80%9D/" data-id="cleus9o1p00009wusggdv33tz" data-title="“3.5.2”" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ‘回文日期判断’
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/05/%E8%93%9D%E6%A1%A5%E6%9D%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/31/%E8%93%9D%E6%A1%A5%E6%9D%AFexcel%E7%9A%84%E4%BD%BF%E7%94%A8/">蓝桥杯excel的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/%E5%B9%B3%E5%9D%87%E6%95%B0%E4%B8%8E%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E5%80%BC/">平均数与最大最小值</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/30/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2/">数字三角形</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/28/%E2%80%9C%E5%8D%A1%E7%89%87%E5%88%B6%E4%BD%9C%E2%80%9D/">“卡片制作”</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/">‘回文日期判断’</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

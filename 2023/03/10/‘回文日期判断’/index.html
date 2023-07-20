@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>‘回文日期判断’ | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="题目描述2020 年春节期间，有一个特殊的日期引起了大家的注意：2020 年 2 月 2 日。因为如果将这个日期按 “yyyymmdd” 的格式写成一个 8 位数是 20200202，恰好是一个回文数。我们称这样的日期是回文日期。  有人表示 20200202 是 “千年一遇” 的特殊日子。对此小明很不认同，因为不到 2 年之后就是下一个回文日期：20211202 即 2021 年 12 月 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="‘回文日期判断’">
+<meta property="og:url" content="http://example.com/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="题目描述2020 年春节期间，有一个特殊的日期引起了大家的注意：2020 年 2 月 2 日。因为如果将这个日期按 “yyyymmdd” 的格式写成一个 8 位数是 20200202，恰好是一个回文数。我们称这样的日期是回文日期。  有人表示 20200202 是 “千年一遇” 的特殊日子。对此小明很不认同，因为不到 2 年之后就是下一个回文日期：20211202 即 2021 年 12 月 2">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/1.png">
+<meta property="article:published_time" content="2023-03-10T11:08:10.000Z">
+<meta property="article:modified_time" content="2023-03-30T08:42:06.877Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-‘回文日期判断’" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/" class="article-date">
+  <time class="dt-published" datetime="2023-03-10T11:08:10.000Z" itemprop="datePublished">2023-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ‘回文日期判断’
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong><br>2020 年春节期间，有一个特殊的日期引起了大家的注意：2020 年 2 月 2 日。因为如果将这个日期按 “yyyymmdd” 的格式写成一个 8 位数是 20200202，恰好是一个回文数。我们称这样的日期是回文日期。</p>
+<p><img src="/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/1.png" alt="1"></p>
+<p>有人表示 20200202 是 “千年一遇” 的特殊日子。对此小明很不认同，因为不到 2 年之后就是下一个回文日期：20211202 即 2021 年 12 月 2 日。</p>
+<p>也有人表示 20200202 并不仅仅是一个回文日期，还是一个 ABABBABA 型的回文日期。对此小明也不认同，因为大约 100 年后就能遇到下一个 ABABBABA 型的回文日期：21211212 即 2121 年 12 月 12 日。算不上 “千年一遇”，顶多算 “千年两遇”。</p>
+<p>给定一个 8 位数的日期，请你计算该日期之后下一个回文日期和下一个 ABABBABA 型的回文日期各是哪一天。</p>
+<p><strong>输入描述</strong><br>输入包含一个八位整数 N，表示日期。</p>
+<p>对于所有评测用例，10000101≤N≤89991231，保证 N 是一个合法日期的 8 位数表示。</p>
+<p><strong>输出描述</strong><br>输出两行，每行 1 个八位数。第一行表示下一个回文日期，第二行表示下一个 ABABBABA 型的回文日期。</p>
+<p><strong>输入输出样例</strong><br>示例<br>输入</p>
+<p>20200202</p>
+<p>输出</p>
+<p>20211202<br>21211212</p>
+<p><strong>解题思路：</strong></p>
+<p>将输入的日期进行分类，分成年月日，对日期进行判断是否为回文日期，如果不是则day天数＋1，继续循环判断，直到找到第一个回文日期输出，找到第一个ababbaba型回文日期输出并停止循环。</p>
+<p><strong>代码演示：</strong></p>
+<p>import java.util.Scanner;</p>
+<p>public class main {</p>
+<p>   public static void main(String[] args) {</p>
+<p>​     Scanner scan = new Scanner(System.in);</p>
+<p>​     int date = scan.nextInt();</p>
+<p>​     int year = date/10000;</p>
+<p>​     int month= date%10000/100;</p>
+<p>​     int day=date%100;</p>
+<p>​     int count=0;</p>
+<p>​     boolean a=true;</p>
+<p>​     while(a){</p>
+<p>​      day++;</p>
+<p>​      if(month==2 &amp;&amp; year%4==0 &amp;&amp; day&gt;29){</p>
+<p>​       day=1;</p>
+<p>​       month++;</p>
+<p>​       if(month&gt;12){</p>
+<p>​        month=1;</p>
+<p>​        year++;</p>
+<p>​       }</p>
+<p>​      }</p>
+<p>​      if(month==2 &amp;&amp; year%4!=0 &amp;&amp; day&gt;28){</p>
+<p>​       day=1;</p>
+<p>​       month++;</p>
+<p>​       if(month&gt;12){</p>
+<p>​        month=1;</p>
+<p>​        year++;</p>
+<p>​       }</p>
+<p>​      }</p>
+<p>​      if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12){</p>
+<p>​       if(day&gt;31){</p>
+<p>​        day=1;</p>
+<p>​        month++;</p>
+<p>​        if(month&gt;12){</p>
+<p>​        month=1;</p>
+<p>​        year++;</p>
+<p>​       }</p>
+<p>​       }}</p>
+<p>​      if(month==4 || month==6 || month==9 || month==11){</p>
+<p>​       if(day&gt;30){</p>
+<p>​        day=1;</p>
+<p>​        month++;</p>
+<p>​        if(month&gt;12){</p>
+<p>​        month=1;</p>
+<p>​        year++;</p>
+<p>​       }}}</p>
+<p>​       if(day%10==year/1000 &amp;&amp; day/10==year/100%10 &amp;&amp; month%10==year/10%10 &amp;&amp; month/10==year%10){</p>
+<p>​        if(count==0){</p>
+<p>​        System.out.println(year<em>10000+month</em>100+day);</p>
+<p>​        </p>
+<p>​        count++;}</p>
+<p>​        if(day%10==month%10 &amp;&amp; day/10==month/10){</p>
+<p>​         System.out.println(year<em>10000+month</em>100+day);</p>
+<p>​         break;</p>
+<p>​        }</p>
+<p>​       if(year==9999&amp;&amp;month==12&amp;&amp;day==31){</p>
+<p>​        break;</p>
+<p>​       }</p>
+<p>​       }</p>
+<p>​      }</p>
+<p>​    scan.close();</p>
+<p>​     }    </p>
+<p> }</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/" data-id="clf2fx3u20000gcus1dfv85uk" data-title="‘回文日期判断’" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/28/%E2%80%9C%E5%8D%A1%E7%89%87%E5%88%B6%E4%BD%9C%E2%80%9D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          “卡片制作”
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/05/%E2%80%9C3-5-2%E2%80%9D/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">“3.5.2”</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/31/%E8%93%9D%E6%A1%A5%E6%9D%AFexcel%E7%9A%84%E4%BD%BF%E7%94%A8/">蓝桥杯excel的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/%E5%B9%B3%E5%9D%87%E6%95%B0%E4%B8%8E%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E5%80%BC/">平均数与最大最小值</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/30/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2/">数字三角形</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/28/%E2%80%9C%E5%8D%A1%E7%89%87%E5%88%B6%E4%BD%9C%E2%80%9D/">“卡片制作”</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/10/%E2%80%98%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%88%A4%E6%96%AD%E2%80%99/">‘回文日期判断’</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
